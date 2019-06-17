@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ENTITY % inline "pb|cb|lb|note|hi|foreign|A|choice|expan|corr|reg|subst|del|add|ref|anchor">
+<!ENTITY % inline "pb|head|cb|lb|note|hi|foreign|A|choice|expan|corr|reg|subst|del|add|ref|anchor">
 
 <!-- general -->
 <!ELEMENT pb EMPTY>
 <!ATTLIST pb
-  type (empty|letter) #IMPLIED
+  type (empty|letter|supplement) #IMPLIED
   n NMTOKEN #REQUIRED
   xml:id ID #REQUIRED
+>
+<!ELEMENT head (#PCDATA|%inline;)*>
+<!ATTLIST head
+  type (page|letter|root) #REQUIRED
 >
 <!ELEMENT cb EMPTY>
 <!ATTLIST cb
@@ -15,19 +19,19 @@
 >
 <!ELEMENT lb EMPTY>
 <!ATTLIST lb
-  type (root|note|entry|hom|sense|quote|quote_end|table|table_end) #IMPLIED
+  type (root|note|end_note|entry|hom|sense|quote|end_quote|table|end_table|row) #IMPLIED
   break (yes|no) #IMPLIED
-  n NMTOKEN #REQUIRED
-  xml:id ID #REQUIRED
+  n NMTOKEN #IMPLIED
+  xml:id ID #IMPLIED
 >
-<!ELEMENT note (#PCDATA|%inline;)*>
+<!ELEMENT note (#PCDATA|table|%inline;)*>
 <!ATTLIST note
   xml:id ID #IMPLIED
 >
 <!ELEMENT hi (#PCDATA|%inline;)*>
 <!ATTLIST hi
 >
-<!ELEMENT foreign (#PCDATA|hi)*>
+<!ELEMENT foreign (#PCDATA|%inline;)*>
 <!ATTLIST foreign
   lang (ar|fa|gr|la|fr|he|syc) #REQUIRED
 >
@@ -73,4 +77,21 @@
 <!ATTLIST anchor
   type (arrow) #REQUIRED
   xml:id ID #IMPLIED
+>
+<!-- table -->
+<!ELEMENT table (row|lb)*>
+<!ATTLIST table
+  rows NMTOKEN #IMPLIED
+  cols NMTOKEN #IMPLIED
+>
+<!ELEMENT row (cell)*>
+<!ATTLIST row
+  role NMTOKEN #IMPLIED
+>
+<!ELEMENT cell (#PCDATA|%inline;)*>
+<!ATTLIST cell
+  role NMTOKEN #IMPLIED
+  n NMTOKEN #IMPLIED
+  rows NMTOKEN #IMPLIED
+  cols NMTOKEN #IMPLIED
 >

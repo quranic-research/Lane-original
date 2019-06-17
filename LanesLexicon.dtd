@@ -30,7 +30,7 @@
 <!ELEMENT titleStmt (title+,author,editor?,principal,sponsor,funder+,respStmt+)>
 <!ELEMENT title (#PCDATA|foreign|lb)*>
 <!ATTLIST title
-  type (main|sub|desc|root|entry) #REQUIRED
+  type (main|sub|desc|root|entry|supplement) #REQUIRED
 >
 <!ELEMENT author (#PCDATA)>
 <!ATTLIST author
@@ -133,12 +133,8 @@
 <!ELEMENT change (#PCDATA)>
 
 <!-- ELEMENTS for text -->
-<!ELEMENT body (pb|head|div1)>
-<!ELEMENT head (#PCDATA|%inline)*>
-<!ATTLIST head
-  type (page|letter|root) #REQUIRED
->
-<!ELEMENT div1 (pb|cb|lb|head|div2)*>
+<!ELEMENT body (pb|title|head|div1)*>
+<!ELEMENT div1 (pb|head|cb|lb|div2)*>
 <!ATTLIST div1
   type (letter) #FIXED 'letter'
   n NMTOKEN #REQUIRED
@@ -147,7 +143,7 @@
 
 <!-- SUB-elements of div1 -->
 <!-- div2 -->
-<!ELEMENT div2 (pb|cb|lb|form|entry)*>
+<!ELEMENT div2 (pb|head|cb|lb|note|form|entry)*>
 <!ATTLIST div2
   type (root|xref|supplemental) #REQUIRED
   n NMTOKEN #IMPLIED
@@ -158,7 +154,7 @@
 <!-- form -->
 <!ELEMENT form (iType?,orth+)>
 <!-- entry -->
-<!ELEMENT entry (pb|cb|lb|head|form|hom|span)*>
+<!ELEMENT entry (pb|head|cb|lb|form|hom|span)*>
 <!ATTLIST entry
   type (main|xref) #IMPLIED
   class NMTOKEN #IMPLIED
@@ -177,7 +173,7 @@
 
 <!-- SUB-elements of entry -->
 <!-- hom -->
-<!ELEMENT hom (pb|cb|lb|sense|span)*>
+<!ELEMENT hom (pb|head|cb|lb|sense|span)*>
 <!ATTLIST hom
   type (supplemental) #IMPLIED
   n NMTOKEN #IMPLIED
@@ -199,25 +195,9 @@
 
 <!-- SUB-elements of sense -->
 <!-- quote -->
-<!ELEMENT quote (#PCDATA|L)*>
+<!ELEMENT quote (#PCDATA|l|lb)*>
 <!ATTLIST quote
 >
-<!ELEMENT L (#PCDATA|%inline;)*>
-<!ATTLIST L
->
-<!-- table -->
-<!ELEMENT table (row)*>
-<!ATTLIST table
-  rows NMTOKEN #IMPLIED
-  cols NMTOKEN #IMPLIED
->
-<!ELEMENT row (cell)*>
-<!ATTLIST row
-  role NMTOKEN #IMPLIED
->
-<!ELEMENT cell (#PCDATA|foreign|hi)*>
-<!ATTLIST cell
-  role NMTOKEN #IMPLIED
-  rows NMTOKEN #IMPLIED
-  cols NMTOKEN #IMPLIED
+<!ELEMENT l (#PCDATA|%inline;)*>
+<!ATTLIST l
 >
