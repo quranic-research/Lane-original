@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % inline "pb|cb|lb|note|hi|foreign|A|choice|expan|corr|reg|subst|del|add|ref|anchor">
+
+<!-- general -->
+<!ELEMENT pb EMPTY>
+<!ATTLIST pb
+  type (empty|letter) #IMPLIED
+  n NMTOKEN #REQUIRED
+  xml:id ID #REQUIRED
+>
+<!ELEMENT cb EMPTY>
+<!ATTLIST cb
+  n NMTOKEN #REQUIRED
+  xml:id ID #REQUIRED
+>
+<!ELEMENT lb EMPTY>
+<!ATTLIST lb
+  type (root|note|entry|hom|sense|quote|quote_end|table|table_end) #IMPLIED
+  break (yes|no) #IMPLIED
+  n NMTOKEN #REQUIRED
+  xml:id ID #REQUIRED
+>
+<!ELEMENT note (#PCDATA|%inline;)*>
+<!ATTLIST note
+  xml:id ID #IMPLIED
+>
+<!ELEMENT hi (#PCDATA|%inline;)*>
+<!ATTLIST hi
+>
+<!ELEMENT foreign (#PCDATA|hi)*>
+<!ATTLIST foreign
+  lang (ar|fa|gr|la|fr|he|syc) #REQUIRED
+>
+<!ELEMENT A (#PCDATA)*>
+<!-- choice (expansion and correction) -->
+<!ELEMENT choice ((abbr,expan)|(sic,corr)|(orig,reg))>
+<!ATTLIST choice
+  type (infl|expan|corr|reg) #IMPLIED
+  xml:id ID #IMPLIED
+>
+<!ELEMENT abbr (#PCDATA|foreign|corr|A)*>
+<!ELEMENT expan (#PCDATA|%inline;)*>
+<!ATTLIST expan
+  resp CDATA #REQUIRED
+>
+<!ELEMENT sic (#PCDATA|foreign|A)*>
+<!ELEMENT corr (#PCDATA|%inline;)*>
+<!ATTLIST corr
+  resp CDATA #REQUIRED
+  cert (high|low) #IMPLIED
+>
+<!ELEMENT orig (#PCDATA|foreign|A)*>
+<!ELEMENT reg (#PCDATA|%inline;)*>
+<!ATTLIST reg
+  resp CDATA #REQUIRED
+>
+<!-- subst (deletion and addition) -->
+<!ELEMENT subst (del,add)>
+<!ELEMENT add (#PCDATA|%inline;)*>
+<!ATTLIST add
+  resp CDATA #REQUIRED
+>
+<!ELEMENT del (#PCDATA|%inline;)*>
+<!ATTLIST del
+  resp CDATA #REQUIRED
+>
+<!-- referencing -->
+<!ELEMENT ref (#PCDATA|%inline;)*>
+<!ATTLIST ref
+  target CDATA #REQUIRED
+>
+<!ELEMENT anchor (#PCDATA|%inline;)*>
+<!ATTLIST anchor
+  type (arrow) #REQUIRED
+  xml:id ID #IMPLIED
+>
