@@ -152,7 +152,10 @@
 
 <!-- SUB-elements of div2 -->
 <!-- form -->
-<!ELEMENT form (iType?,orth+)>
+<!ELEMENT form (iType?,orth*)>
+<!ATTLIST form
+  type (verb|entry) #IMPLIED
+>
 <!-- entry -->
 <!ELEMENT entry (pb|head|cb|lb|form|hom|span)*>
 <!ATTLIST entry
@@ -165,12 +168,11 @@
 <!-- SUB-elements of form -->
 <!ELEMENT iType (#PCDATA)>
 <!ATTLIST iType
-  xmlns CDATA #FIXED ''>
+>
 <!ELEMENT orth (#PCDATA)>
 <!ATTLIST orth
-  xmlns CDATA #FIXED ''
-  lang NMTOKEN #REQUIRED>
-
+  lang NMTOKEN #REQUIRED
+>
 <!-- SUB-elements of entry -->
 <!-- hom -->
 <!ELEMENT hom (pb|head|cb|lb|sense|span)*>
