@@ -52,9 +52,9 @@
 <!ATTLIST funder
   n NMTOKEN #REQUIRED
 >
-<!ELEMENT respStmt (resp,persName)>
+<!ELEMENT respStmt (resp,persName+)>
 <!ATTLIST respStmt
-  xml:id (WHL|NUI) #REQUIRED
+  xml:id (WHL|NUI|GA) #REQUIRED
 >
 <!ELEMENT resp (#PCDATA)>
 <!ELEMENT persName (#PCDATA)>
