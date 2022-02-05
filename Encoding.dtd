@@ -246,6 +246,7 @@
 		<mapping type="standard">&#x640;</mapping>
 		<mapping type="internal">B</mapping>
 		<mapping type="buckw">&#x5F;</mapping>
+		<mapping type="buckw2">B</mapping>
 	</char>
 	<char xml:id="u0641">
 		<charName>ARABIC LETTER FEH</charName>
@@ -368,6 +369,7 @@
 		<desc>Marks duplication of character</desc>
 		<mapping type="standard">&#x651;</mapping>
 		<mapping type="internal">R</mapping>
+		<mapping type="buckw">&#x7E;</mapping>
 		<mapping type="buckw2">&#x7E;</mapping>
 	</char>
 	<char xml:id="u0652">
@@ -433,11 +435,19 @@
 		<mapping type="buckw">J</mapping>
 		<mapping type="buckw2">J</mapping>
 	</char>
+	<char xml:id="u0698">
+		<charName>ARABIC LETTER JEH</charName>
+		<note>Only for lang="fa"</note>
+		<mapping type="standard">&#x698;</mapping>
+		<mapping type="internal">V</mapping>
+		<mapping type="buckw"></mapping>
+		<mapping type="buckw2">C</mapping>
+	</char>
 	<char xml:id="u06A4">
 		<charName>ARABIC LETTER VEH</charName>
-		<note>Only for lang="fa"</note>
+		<note>not used as only for Kurdic</note>
 		<mapping type="standard">&#x6A4;</mapping>
-		<mapping type="internal">V</mapping>
+		<mapping type="internal"></mapping>
 		<mapping type="buckw">V</mapping>
 		<mapping type="buckw2">V</mapping>
 	</char>
