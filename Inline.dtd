@@ -35,7 +35,7 @@
 <!ATTLIST foreign
   lang (ar|fa|gr|la|fr|he|syc) #REQUIRED
 >
-<!ELEMENT A (#PCDATA|%inline;)*>
+<!ELEMENT A (#PCDATA)*>
 <!-- choice (expansion and correction) -->
 <!ELEMENT choice ((abbr,expan)|(sic,corr)|(orig,reg))>
 <!ATTLIST choice
